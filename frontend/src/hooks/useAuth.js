@@ -19,7 +19,6 @@ export function useAuth() {
     }
 
     queryParams.credentials = 'include';
-    queryParams.headers['Content-Type'] = 'application/json';
 
     return fetch(`${baseUrl}/${url}`, queryParams)
       .then(res => {
@@ -35,6 +34,9 @@ export function useAuth() {
   const signup = (userInfo) => {
     const queryParams = {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(userInfo),
     }
     return sendQuery('signup', queryParams)
@@ -43,6 +45,9 @@ export function useAuth() {
   const signin = (userInfo) => {
     const queryParams = {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(userInfo),
     }
     return sendQuery('signin', queryParams)

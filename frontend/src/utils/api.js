@@ -27,6 +27,9 @@ class Api {
   patchUserInfo(userInfo) {
     const queryParams = {
       method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: userInfo.name,
         about: userInfo.about
@@ -38,6 +41,9 @@ class Api {
   patchAvatar(link) {
     const queryParams = {
       method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         avatar: link
       })
@@ -48,6 +54,9 @@ class Api {
   postCard(card) {
     const queryParams = {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: card.name,
         link: card.link

@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
-
+const cors = require('cors');
 const { createUser, login } = require('./controllers/users');
 const { validateNewUserData, validateAuthData } = require('./middlewares/validation');
 const auth = require('./middlewares/auth');
@@ -23,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Подключаем логгер запросов
 app.use(requestLogger);
+
+app.use(cors());
 
 app.post('/api/signin', validateAuthData, login);
 app.post('/api/signup', validateNewUserData, createUser);

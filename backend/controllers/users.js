@@ -30,7 +30,7 @@ module.exports.login = (req, res, next) => {
           maxAge: week,
           httpOnly: true,
         })
-        .end();
+        .send({ 'token': token });
     })
     .catch(next);
 };

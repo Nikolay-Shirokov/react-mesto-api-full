@@ -34,7 +34,7 @@ function App() {
 
   useEffect(() => {
 
-    checkToken();
+    /* checkToken(); */
 
     // Загрузка данных профиля с сервера
     api.getUserInfo()

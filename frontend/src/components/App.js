@@ -78,7 +78,6 @@ function App() {
     return api.patchUserInfo(newUserInfo)
       .then(res => {
         setCurrentUser(res);
-        /*         setIsEditProfilePopupOpen(false); */
       })
       .catch(handleError)
   }
@@ -87,7 +86,6 @@ function App() {
     return api.patchAvatar(newLink)
       .then(res => {
         setCurrentUser(res);
-        /*         setIsEditAvatarPopupOpen(false); */
       })
       .catch(handleError)
   }
@@ -126,7 +124,6 @@ function App() {
     return api.deleteCard(selectedCard._id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== selectedCard._id));
-        /*         setIsCardDeleteConfirmPopupOpen(false) */
       })
       .catch(handleError);
   }
@@ -135,7 +132,6 @@ function App() {
     return api.postCard(newCardData)
       .then(newCard => {
         setCards([newCard, ...cards]);
-        /*         setIsAddPlacePopupOpen(false); */
       })
       .catch(handleError)
   }

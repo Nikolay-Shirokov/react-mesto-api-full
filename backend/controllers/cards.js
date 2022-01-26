@@ -12,6 +12,7 @@ module.exports.createCard = (req, res, next) => {
   cardData.owner = req.user;
 
   Card.create(cardData)
+    .then((card) => Card.findById(card._id))
     .populate(['owner', 'likes'])
     .then((card) => res.send(card))
     .catch((err) => handleError(err, next, ERROR_MESSAGE));

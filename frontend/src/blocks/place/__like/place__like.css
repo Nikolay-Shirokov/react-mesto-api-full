@@ -1,0 +1,14 @@
+﻿.place__like {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../images/heart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  /* align-self: center; */
+}
+
+.place__like:hover {
+  opacity: .5;
+}

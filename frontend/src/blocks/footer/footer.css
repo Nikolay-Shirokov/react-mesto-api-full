@@ -1,0 +1,13 @@
+﻿.footer {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    min-height: 88px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

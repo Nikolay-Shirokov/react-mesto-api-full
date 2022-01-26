@@ -1,0 +1,13 @@
+﻿.profile__info {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 11px;
+}
+
+@media screen and (max-width: 800px) {
+  .profile__info {
+    grid-template-columns: 1fr auto 1fr;
+    row-gap: 7px;
+  }
+}

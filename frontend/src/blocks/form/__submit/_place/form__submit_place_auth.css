@@ -1,0 +1,5 @@
+.form__submit_place_auth {
+  background: var(--basic-white);
+  color: var(--basic-dark);
+  border: 1px solid var(--basic-dark);
+}

@@ -1,0 +1,22 @@
+﻿.root {
+  background-color: var(--basic-dark);
+  min-width: 282px;
+  max-width: 880px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+@media screen and (max-width: 916px) {
+  .root {
+    --page-padding: 19px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .root {
+    --header-height: 84px;
+  }
+}

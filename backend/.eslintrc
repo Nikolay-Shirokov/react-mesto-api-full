@@ -1,0 +1,23 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allowAfterThis": true,
+        "allowAfterThisConstructor": true,
+        "allowFunctionParams": true,
+        "allow": ["_id"]
+      }
+    ],
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "consistent-return": "off",
+    "no-useless-escape": "off",
+    "max-classes-per-file": "off",
+    "no-param-reassign": [
+      "error",
+      { "props": false }
+    ]
+  }
+}

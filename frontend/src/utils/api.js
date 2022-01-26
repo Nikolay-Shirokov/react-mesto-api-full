@@ -77,7 +77,7 @@ class Api {
     const queryParams = {
       method: method,
     }
-    return this._sendQuery(`cards/likes/${cardId}`, queryParams);
+    return this._sendQuery(`cards/${cardId}/likes`, queryParams);
   }
 
   signup(userInfo) {

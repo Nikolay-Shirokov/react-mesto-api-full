@@ -18,6 +18,7 @@ export function useAuth() {
       queryParams.headers = {}
     }
 
+    queryParams.credentials = 'include';
     queryParams.headers['Content-Type'] = 'application/json';
 
     return fetch(`${baseUrl}/${url}`, queryParams)
@@ -57,7 +58,7 @@ export function useAuth() {
   const handleSignup = (userInfo) => {
     return signup(userInfo)
       .then(res => {
-        /* handleSignin(userInfo); */
+        handleSignin(userInfo);
       })
   }
 

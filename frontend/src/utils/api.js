@@ -65,13 +65,34 @@ class Api {
   }
 
   setStateLike(cardId, isLiked) {
-    const method = isLiked? 'DELETE': 'PUT';
+    const method = isLiked ? 'DELETE' : 'PUT';
     const queryParams = {
       method: method,
     }
     return this._sendQuery(`cards/likes/${cardId}`, queryParams);
   }
 
+  signup(userInfo) {
+    const queryParams = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+    }
+    return this._sendQuery('signup', queryParams)
+  }
+
+  signin(userInfo) {
+    const queryParams = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+    }
+    return this._sendQuery('signin', queryParams)
+  }
 }
 
 // Инициализация АПИ

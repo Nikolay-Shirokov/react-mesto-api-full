@@ -1,6 +1,6 @@
 {
   "name": "react-mesto-auth",
-  "homepage": "https://nikolay-shirokov.github.io/react-mesto-auth/",
+  "homepage": "http://mesto.nshirokov.nomoredomains.rocks/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

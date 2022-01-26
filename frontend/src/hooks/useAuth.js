@@ -47,12 +47,9 @@ export function useAuth() {
     return sendQuery('signin', queryParams)
   }
 
-  const getUserInfo = (token) => {
+  const getUserInfo = () => {
     const queryParams = {
       method: 'GET',
-      headers: {
-        "Authorization": `Bearer ${token}`
-      },
     }
     return sendQuery('users/me', queryParams)
   }
@@ -67,15 +64,12 @@ export function useAuth() {
   const handleSignin = (userInfo) => {
     return signin(userInfo)
       .then(res => {
-        if (res.token) {
-          localStorage.setItem('token', res.token);
-          handleGetUserInfo(res.token);
-        }
+          handleGetUserInfo();
       })
   }
 
-  const handleGetUserInfo = (token) => {
-    return getUserInfo(token)
+  const handleGetUserInfo = () => {
+    return getUserInfo()
       .then(res => {
         setAuthInfo({
           ...authInfo,
@@ -87,14 +81,10 @@ export function useAuth() {
   }
 
   const checkToken = () => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      handleGetUserInfo(token)
-    }
+      handleGetUserInfo();
   }
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
     setAuthInfo(emptyAuthInfo);
   }
 

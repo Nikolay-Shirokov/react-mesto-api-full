@@ -75,11 +75,7 @@ class Api {
 
 // Инициализация АПИ
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-28',
-  headers: {
-    authorization: '720b9ff8-fdb3-4425-b748-9e049f638fb6',
-    'Content-Type': 'application/json'
-  }
+  baseUrl: 'https://mesto.nshirokov.nomoredomains.rocks/api/'
 });
 
 export default api;

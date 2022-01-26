@@ -95,6 +95,10 @@ function App() {
   //Разовые действия при монтированнии/демонтировании компонента
   useEffect(() => {
 
+    if (!authInfo.loggedIn) {
+      return;
+    }
+
     // Загрузка коллекции карточек с сервера
     api.getInitialCards()
       .then(data => {

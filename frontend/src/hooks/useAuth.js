@@ -32,7 +32,7 @@ export function useAuth() {
         setAuthInfo({
           ...authInfo,
           loggedIn: true,
-          email: res.email,
+          ...res,
         });
         navigate('/')
       })

@@ -5,7 +5,6 @@ class Api {
   }
 
   _sendQuery(url, queryParams = {}) {
-    queryParams.headers = this._options.headers;
     queryParams.credentials = 'include';
     return fetch(`${this._options.baseUrl}/${url}`, queryParams)
       .then(res => {

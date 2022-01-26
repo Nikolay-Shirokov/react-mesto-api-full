@@ -34,16 +34,15 @@ function App() {
 
   useEffect(() => {
 
-    /* checkToken(); */
-
-    // Загрузка данных профиля с сервера
-    api.getUserInfo()
-      .then(newUserInfo => {
-        setCurrentUser(newUserInfo)
-      })
-      .catch(handleError);
+    checkToken();
 
   }, []);
+
+  useEffect(() => {
+
+    setCurrentUser(authInfo)
+
+  }, [authInfo]);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -103,7 +102,7 @@ function App() {
       })
       .catch(handleError);
 
-  }, []);
+  }, [authInfo]);
 
   function handleCardLike(card, isLiked) {
     // Отправляем запрос в API и получаем обновлённые данные карточки

@@ -10,7 +10,7 @@ export function useAuth() {
   const navigate = useNavigate();
 
   const [authInfo, setAuthInfo] = useState(emptyAuthInfo);
-  const baseUrl = 'https://mesto.nshirokov.nomoredomains.rocks/api/';
+  const baseUrl = 'https://mesto.nshirokov.nomoredomains.rocks/api';
 
   const sendQuery = (url, queryParams) => {
 

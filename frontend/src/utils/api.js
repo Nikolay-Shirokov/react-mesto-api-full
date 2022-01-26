@@ -75,7 +75,7 @@ class Api {
 
 // Инициализация АПИ
 const api = new Api({
-  baseUrl: 'https://mesto.nshirokov.nomoredomains.rocks/api/'
+  baseUrl: 'https://mesto.nshirokov.nomoredomains.rocks/api'
 });
 
 export default api;

@@ -24,15 +24,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Подключаем логгер запросов
 app.use(requestLogger);
 
-app.post('/signin', validateAuthData, login);
-app.post('/signup', validateNewUserData, createUser);
+app.post('/api/signin', validateAuthData, login);
+app.post('/api/signup', validateNewUserData, createUser);
 
 // авторизация
 app.use(auth);
 
 // Подключение маршрутизации
-app.use('/users', require('./routes/users'));
-app.use('/cards', require('./routes/cards'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/cards', require('./routes/cards'));
 
 // Обработка неопределенных маршрутов
 app.use('/', (req, res, next) => next(new NotFoundError('Запрашиваемая страница не найдена')));

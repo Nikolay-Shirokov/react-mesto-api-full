@@ -22,7 +22,7 @@ export function useAuth() {
   const handleSignin = (userInfo) => {
     return api.signin(userInfo)
       .then(res => {
-          handleGetUserInfo();
+          setTimeout(handleGetUserInfo, 1000);
       })
   }
 

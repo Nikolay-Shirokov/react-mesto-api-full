@@ -8,6 +8,7 @@ const { validateNewUserData, validateAuthData } = require('./middlewares/validat
 const auth = require('./middlewares/auth');
 const { centralErrorHandler, NotFoundError } = require('./utils/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cookieParser = require('cookie-parser');
 
 // Скажем нет захардкоженным данным
 require('dotenv').config();
@@ -23,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Подключаем логгер запросов
 app.use(requestLogger);
-
+app.use(cookieParser())
 app.use(cors());
 
 app.get('/api/crash-test', () => {

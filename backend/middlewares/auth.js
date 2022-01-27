@@ -7,13 +7,12 @@ const ERROR_MESSAGE = {
 };
 
 module.exports = (req, res, next) => {
-  const { cookie } = req.headers;
 
-  if (!cookie || !cookie.startsWith('jwt=')) {
+  if (!req.cookies || !req.cookies.jwt) {
     return next(new AuthError(ERROR_MESSAGE.authError));
   }
 
-  const token = cookie.replace('jwt=', '');
+  const token = req.cookies.jwt;
   let payload;
 
   try {

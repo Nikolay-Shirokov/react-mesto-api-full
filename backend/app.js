@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const { createUser, login } = require('./controllers/users');
 const { validateNewUserData, validateAuthData } = require('./middlewares/validation');
 const auth = require('./middlewares/auth');
 const { centralErrorHandler, NotFoundError } = require('./utils/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cookieParser = require('cookie-parser');
 
 // Скажем нет захардкоженным данным
 require('dotenv').config();
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Подключаем логгер запросов
 app.use(requestLogger);
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(cors());
 
 app.get('/api/crash-test', () => {

@@ -45,9 +45,9 @@ export function useAuth() {
   const handleLogout = () => {
     return api.signout()
       .then(res => {
-        if (res.ok) {
+/*         if (res.ok) { */
           setAuthInfo(emptyAuthInfo);
-        }
+/*         } */
       })
   }
 

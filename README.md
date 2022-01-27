@@ -3,3 +3,5 @@
   
 Ссылка на опубликованный проект:
 https://mesto.nshirokov.nomoredomains.rocks/
+Публичный IP:
+62.84.112.50

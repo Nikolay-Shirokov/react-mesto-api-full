@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import ImagePopup from "./ImagePopup";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { handleError } from "../utils/utils";
 import api from "../utils/api";
 
@@ -92,6 +92,14 @@ function App() {
   //Карточки
   const [cards, setCards] = useState([]);
 
+  const getInitialCards = useCallback(()=>{
+    api.getInitialCards()
+    .then(data => {
+      setCards(data);
+    })
+    .catch(handleError);
+  })
+
   //Разовые действия при монтированнии/демонтировании компонента
   useEffect(() => {
 
@@ -100,11 +108,12 @@ function App() {
     }
 
     // Загрузка коллекции карточек с сервера
-    api.getInitialCards()
+/*     api.getInitialCards()
       .then(data => {
         setCards(data);
       })
-      .catch(handleError);
+      .catch(handleError); */
+      setTimeout(getInitialCards, 1000);
 
   }, [authInfo]);
 

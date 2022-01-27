@@ -101,6 +101,13 @@ class Api {
     }
     return this._sendQuery('signin', queryParams)
   }
+
+  signout() {
+    const queryParams = {
+      method: 'GET',
+    }
+    return this._sendQuery('signout', queryParams)
+  }
 }
 
 // Инициализация АПИ

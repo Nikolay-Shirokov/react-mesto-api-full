@@ -22,7 +22,7 @@ export function useAuth() {
   const handleSignin = (userInfo) => {
     return api.signin(userInfo)
       .then(res => {
-          setTimeout(handleGetUserInfo, 1000);
+        setTimeout(handleGetUserInfo, 1000);
       })
   }
 
@@ -39,11 +39,16 @@ export function useAuth() {
   }
 
   const checkToken = () => {
-      handleGetUserInfo();
+    handleGetUserInfo();
   }
 
   const handleLogout = () => {
-    setAuthInfo(emptyAuthInfo);
+    return api.signout()
+      .then(res => {
+        if (res.ok) {
+          setAuthInfo(emptyAuthInfo);
+        }
+      })
   }
 
   return { authInfo, setAuthInfo, handleSignup, handleSignin, checkToken, handleLogout };

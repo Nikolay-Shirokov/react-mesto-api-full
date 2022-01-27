@@ -43,6 +43,10 @@ app.use(auth);
 app.use('/api/users', require('./routes/users'));
 app.use('/api/cards', require('./routes/cards'));
 
+app.get('/api/signout', (req, res) => {
+  res.status(200).clearCookie('jwt').send({ message: 'Выход' });
+});
+
 // Обработка неопределенных маршрутов
 app.use('/', (req, res, next) => next(new NotFoundError('Запрашиваемая страница не найдена')));
 

@@ -30,7 +30,7 @@ module.exports.login = (req, res, next) => {
           maxAge: week,
           httpOnly: true,
         })
-        .send({ 'token': token });
+        .send({ token });
     })
     .catch(next);
 };
@@ -47,7 +47,12 @@ module.exports.createUser = (req, res, next) => {
       email,
       password: hash,
     }))
-    .then((user) => res.send(user))
+    .then((user) => res.send({
+      name,
+      about,
+      avatar,
+      email,
+    }))
     .catch((err) => {
       if (err.code === 11000) {
         return next(new ConflictError('Пользователь по указанному email уже зарегистрирован'));
